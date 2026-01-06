@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Warm, friendly educational palette */
+    --background: 40 50% 97%;
+    --foreground: 240 20% 20%;
+
+    --card: 40 40% 99%;
+    --card-foreground: 240 20% 20%;
+
+    --popover: 40 40% 99%;
+    --popover-foreground: 240 20% 20%;
+
+    /* Warm Orange - Primary */
+    --primary: 28 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 28 100% 60%;
+
+    /* Indigo - Tutor Panel */
+    --secondary: 245 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 245 80% 96%;
+
+    /* Teal - Accents */
+    --accent: 174 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 174 60% 90%;
+
+    --muted: 40 30% 92%;
+    --muted-foreground: 240 10% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 30% 88%;
+    --input: 40 30% 88%;
+    --ring: 28 100% 50%;
+
+    --radius: 1rem;
+
+    /* Whiteboard */
+    --whiteboard: 45 60% 96%;
+    --whiteboard-border: 28 100% 50%;
+
+    /* Tutor Panel */
+    --tutor-bg: 245 80% 98%;
+    --tutor-border: 245 70% 70%;
+
+    /* Hint Cards */
+    --hint-card: 0 0% 100%;
+    --hint-active: 28 100% 95%;
+
+    /* Grade Badge */
+    --badge-bg: 174 70% 45%;
+    --badge-text: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(28 100% 50%), hsl(35 100% 55%));
+    --gradient-tutor: linear-gradient(135deg, hsl(245 70% 55%), hsl(260 70% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(174 70% 45%), hsl(180 60% 50%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(240 20% 20% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(240 20% 20% / 0.15);
+    --shadow-glow-orange: 0 0 30px hsl(28 100% 50% / 0.3);
+    --shadow-glow-indigo: 0 0 30px hsl(245 70% 55% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 20% 10%;
+    --foreground: 40 20% 95%;
+
+    --card: 240 20% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 240 20% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 28 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 245 60% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 174 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 240 15% 20%;
+    --muted-foreground: 40 10% 65%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 25%;
+    --input: 240 15% 25%;
+    --ring: 28 100% 55%;
+
+    --whiteboard: 240 15% 15%;
+    --whiteboard-border: 28 100% 55%;
+
+    --tutor-bg: 245 30% 15%;
+    --tutor-border: 245 50% 50%;
+
+    --hint-card: 240 20% 18%;
+    --hint-active: 28 50% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-nunito antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:opacity-90 transition-all duration-200;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:opacity-90 transition-all duration-200;
+  }
+
+  .card-hint {
+    @apply bg-hint-card border-2 border-border rounded-xl p-4 transition-all duration-300;
+  }
+
+  .card-hint-active {
+    @apply bg-hint-active border-primary shadow-lg;
+  }
+
+  .whiteboard-container {
+    @apply bg-whiteboard border-4 border-whiteboard-border rounded-2xl shadow-card;
+  }
+
+  .tutor-panel {
+    @apply bg-tutor-bg border-4 border-tutor-border rounded-2xl shadow-card;
+  }
+
+  .grade-badge {
+    @apply bg-badge-bg text-badge-text px-3 py-1 rounded-full text-sm font-bold;
+  }
+
+  .starter-btn {
+    @apply bg-accent/10 text-accent border border-accent/30 px-3 py-2 rounded-lg text-sm font-medium 
+           hover:bg-accent hover:text-accent-foreground transition-all duration-200 cursor-pointer;
+  }
+
+  .tool-btn {
+    @apply w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 
+           hover:scale-110 active:scale-95;
+  }
+
+  .tool-btn-active {
+    @apply ring-2 ring-primary ring-offset-2 shadow-md;
+  }
+
+  .color-dot {
+    @apply w-8 h-8 rounded-full cursor-pointer transition-all duration-200 
+           hover:scale-110 active:scale-95 border-2 border-white shadow-md;
+  }
+
+  .input-question {
+    @apply bg-card border-2 border-border rounded-xl px-4 py-3 w-full 
+           focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .font-nunito {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(28 100% 50% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(28 100% 50% / 0.5); }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
